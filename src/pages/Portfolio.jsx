@@ -1,4 +1,4 @@
-import quizMasterVideo from '../assests/QuizMaster.mp4';
+
 
 export default function Portfolio() {
   const projects = [
@@ -11,10 +11,10 @@ export default function Portfolio() {
     },
     {
       id: 2,
-      title: "QuizMaster",
-      type: "video",
-      src: quizMasterVideo,
-      description: "An interactive quiz application with real-time scoring and user-friendly interface"
+      title: "Project Name",
+      type: "image",
+      src: "/images/p2.jpg",
+      description: "Project description here"
     },
     {
       id: 3,

@@ -5,6 +5,13 @@ export default function Contact() {
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
+  const services = [
+    "Frontend Developer",
+    "Backend Developer",
+    "Full Stack Developer",
+    "Mobile App Developer"
+  ];
+
   const sendEmail = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -62,13 +69,18 @@ export default function Contact() {
             name="mobile"
           />
 
-          <input
-            className="input"
-            placeholder="Subject"
-            type="text"
+          <select
+            className="input bg-[#0b1220] text-white border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:border-[#2DFF7A]"
             name="subject"
             required
-          />
+          >
+            <option value="">Select Service</option>
+            {services.map((service) => (
+              <option key={service} value={service}>
+                {service}
+              </option>
+            ))}
+          </select>
         </div>
 
         <textarea
