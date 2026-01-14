@@ -7,25 +7,25 @@ export default function Home() {
   ];
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-32 grid md:grid-cols-2 gap-20 items-center min-h-[calc(100vh-80px)]">
+    <div className="mx-auto grid min-h-[calc(100vh-80px)] max-w-6xl items-center gap-14 px-4 py-16 sm:py-24 md:grid-cols-2 md:gap-20 md:py-28">
       {/* Left Content */}
       <div className="space-y-6">
         <div>
-          <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
             Tim Knoll
           </h1>
-          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-[#2DFF7A]">
+          <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-[#2DFF7A]">
             I'm a Frontend Developer
           </h2>
         </div>
 
-        <p className="text-white/70 leading-relaxed text-base md:text-lg max-w-lg">
+        <p className="max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor aliquam voluptates, tempora, ratione libero saepe voluptatibus et, necessitatibus nisl temporibus optio. Velit, enim tempora. Est voluptate eveniet magni laborum labore beatae.
         </p>
 
         {/* CTA and Social */}
-        <div className="flex flex-col sm:flex-row items-start gap-8 pt-4">
-          <button className="rounded-full bg-[#2DFF7A] px-8 py-4 text-black font-bold shadow-lg hover:bg-[#1dd85f] transition duration-300 text-lg">
+        <div className="flex flex-col items-stretch gap-8 pt-4 sm:flex-row sm:items-center">
+          <button className="w-full rounded-full bg-[#2DFF7A] px-8 py-4 text-center text-lg font-bold text-black shadow-lg transition duration-300 hover:bg-[#1dd85f] sm:w-auto">
             Download CV
           </button>
 
@@ -47,12 +47,12 @@ export default function Home() {
 
       {/* Right Image */}
       <div className="flex justify-center md:justify-end">
-        <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-[#2DFF7A] overflow-hidden">
-          <div className="w-full h-full bg-gradient-to-br from-[#2DFF7A]/40 via-[#1a4d2e] to-[#0b1220] flex items-center justify-center">
+        <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-[#2DFF7A] sm:h-80 sm:w-80 md:h-96 md:w-96">
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#2DFF7A]/40 via-[#1a4d2e] to-[#0b1220]">
             <img
               src="https://via.placeholder.com/400/2DFF7A/0b1220?text=Profile+Photo"
               alt="Tim Knoll - Frontend Developer"
-              className="w-full h-full object-cover rounded-full"
+              className="h-full w-full rounded-full object-cover"
             />
           </div>
         </div>
