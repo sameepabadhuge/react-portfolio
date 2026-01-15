@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
-import About from "./pages/About";
+import Resume from "./pages/About";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
@@ -14,7 +14,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />        {/* default */}
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<Resume />} />
         <Route path="/services" element={<Services />} />
         <Route path="/projects" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
