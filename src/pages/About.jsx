@@ -27,39 +27,93 @@ const certificates = [
   },
 ];
 
+const experiences = [
+  {
+    title: "CI/CD Pipeline Engineer",
+    org: "GitHub",
+    period: "Nov 2025 – Dec 2025",
+    bullets: [
+      "Built CI/CD pipelines with Jenkins, automated Docker container deployments, and Kubernetes orchestration",
+      "Implemented code quality checks with SonarQube and managed Docker images via Docker Hub",
+      "Technologies: Jenkins, GitHub, Docker, Docker Hub, Kubernetes, SonarQube, WSL2",
+    ],
+  },
+  {
+    title: "Full Stack Developer",
+    org: "Freelance",
+    period: "2024 – Present",
+    bullets: [
+      "Developed MERN applications with responsive UI and secure REST APIs",
+      "Integrated authentication, role-based access, and optimized database queries",
+      "Technologies: React, Node.js, Express, MongoDB, Tailwind CSS",
+    ],
+  },
+];
+
 export default function Resume() {
-  const [activeTab, setActiveTab] = useState('about');
+  const [activeTab, setActiveTab] = useState('experience');
+  const [certIndex, setCertIndex] = useState(0);
+
+  const showPrevCert = () => {
+    if (certificates.length === 0) return;
+    setCertIndex((i) => (i - 1 + certificates.length) % certificates.length);
+  };
+
+  const showNextCert = () => {
+    if (certificates.length === 0) return;
+    setCertIndex((i) => (i + 1) % certificates.length);
+  };
 
   const tabs = [
-    { id: 'about', label: 'About Me' },
-    { id: 'skills', label: 'My Skills' },
+    { id: 'experience', label: 'Experience' },
     { id: 'certificates', label: 'Certificates' },
-    { id: 'achievements', label: 'Achievements' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'about', label: 'About me' },
   ];
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 sm:py-20 md:py-24">
-      <div className="space-y-8 text-center md:text-left">
-        <h1 className="text-3xl font-bold sm:text-4xl">
-          My <span className="text-[#2DFF7A]">Resume</span>
+      <div className="space-y-6 md:space-y-8">
+        <h1 className="text-3xl font-bold sm:text-4xl text-center md:text-left">
+          Why hire me?
         </h1>
 
-        {/* Tab Navigation */}
-        <div className="flex flex-wrap gap-2 border-b border-white/10 pb-4">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-lg font-medium transition ${
-                activeTab === tab.id
-                  ? 'bg-[#2DFF7A] text-black'
-                  : 'bg-white/5 text-white/70 hover:text-white border border-white/10'
-              }`}
-            >
-              {tab.label}
-            </button>
+        {/* Tab Navigation (vertical stack) */}
+        <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex sm:flex-col w-full sm:w-64 gap-3">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`${
+                  activeTab === tab.id
+                    ? 'bg-[#2DFF7A] text-black'
+                    : 'bg-white/5 text-white/80 hover:text-white border border-white/10'
+                } px-5 py-3 rounded-xl text-base font-semibold text-left`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex-1 space-y-6">
+
+        {/* Experience Section */}
+        {activeTab === 'experience' && (
+        <section className="space-y-4">
+          {experiences.map((exp, idx) => (
+            <div key={idx} className="rounded-xl bg-white/5 p-6 border border-white/10">
+              <h2 className="text-xl sm:text-2xl font-bold">{exp.title}</h2>
+              <p className="text-[#2DFF7A] text-sm sm:text-base mt-1">{exp.org} • {exp.period}</p>
+              <ul className="mt-4 space-y-2 text-white/80 text-sm sm:text-base list-disc pl-5">
+                {exp.bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </div>
+        </section>
+        )}
 
         {/* About Me Section */}
         {activeTab === 'about' && (
@@ -67,6 +121,7 @@ export default function Resume() {
           <h2 className="text-2xl font-bold text-white">
             About <span className="text-[#2DFF7A]">Me</span>
           </h2>
+          {/* Original detailed description */}
           <div className="rounded-lg bg-white/5 p-6 border border-[#2DFF7A]/30 space-y-4">
             <p className="text-base leading-relaxed text-white/70 sm:text-lg">
               I am an undergraduate student at Uva Wellassa University of Sri Lanka, currently following the Bachelor of Information and Communication Technology (BICT) degree program. Through my academic studies and personal projects, I have gained a strong foundation in software development, problem-solving, and modern application design.
@@ -79,6 +134,30 @@ export default function Resume() {
             <p className="text-base leading-relaxed text-white/70 sm:text-lg">
               As a motivated learner, I continuously improve my skills by practicing new technologies, building real-world projects, and exploring best development practices. My goal is to become a skilled Full Stack Developer and contribute to impactful software solutions while growing professionally in the tech industry.
             </p>
+          </div>
+
+          {/* New compact profile + contact cards */}
+          <div className="space-y-6 mt-6">
+            <div className="rounded-xl bg-white/5 p-6 border border-white/10">
+              <h3 className="text-xl font-semibold text-white">About me</h3>
+              <p className="mt-3 text-white/80">
+                BICT undergraduate passionate about DevOps, cloud computing, and building secure, automated systems.
+              </p>
+              <div className="mt-4 space-y-2 text-white/70 text-sm">
+                <p><span className="text-white">Name:</span> <span className="font-semibold">Ayesha Lakshan</span></p>
+                <p><span className="text-white">Experience:</span> <span className="font-semibold">23 Years old</span></p>
+                <p><span className="text-white">Nationality:</span> <span className="font-semibold">Sri Lankan</span></p>
+              </div>
+            </div>
+
+            <div className="rounded-xl bg-white/5 p-6 border border-white/10">
+              <h3 className="text-xl font-semibold text-white">Contact</h3>
+              <div className="mt-3 space-y-2 text-white/70 text-sm">
+                <p><span className="text-white">Phone:</span> <span className="font-semibold">070-5049567</span></p>
+                <p><span className="text-white">Email:</span> <span className="font-semibold">ayeshalakshan00@gmail.com</span></p>
+                <p><span className="text-white">Languages:</span> <span className="font-semibold">English, Sinhala</span></p>
+              </div>
+            </div>
           </div>
         </section>
         )}
@@ -169,87 +248,51 @@ export default function Resume() {
         {activeTab === 'certificates' && (
         <section className="space-y-4">
           <h2 className="text-2xl font-bold text-white">
-            <span className="text-[#2DFF7A]">Certificates</span> & Achievements
+            <span className="text-[#2DFF7A]">Certificates</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {certificates.map((cert, index) => (
-              <div key={index} className="rounded-lg bg-white/5 p-4 border border-[#2DFF7A]/30 overflow-hidden">
-                {/* Certificate Image */}
-                <div className="mb-4 bg-white/10 rounded-lg overflow-hidden h-48 flex items-center justify-center border border-[#2DFF7A]/20">
-                  <img 
-                    src={cert.image} 
-                    alt={cert.title}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
+          {certificates.length === 0 ? (
+            <div className="rounded-xl bg-white/5 p-6 border border-white/10 text-white/70">
+              No certificates added yet.
+            </div>
+          ) : (
+            <>
+              <div className="rounded-xl bg-white/5 p-4 border border-[#2DFF7A]/30 overflow-hidden">
+                <div className="bg-white/10 rounded-lg overflow-hidden border border-[#2DFF7A]/20 flex items-center justify-center">
+                  <img
+                    src={certificates[certIndex].image}
+                    alt={certificates[certIndex].title}
+                    className="w-full h-auto object-contain"
+                    onError={(e) => { e.target.style.display = 'none'; }}
                   />
-                  <div className="text-white/40 text-center hidden" id={`placeholder-${index}`}>
-                    <p className="text-sm">Certificate Image</p>
-                  </div>
                 </div>
-                
-                {/* Certificate Info */}
-                <div>
-                  <h3 className="text-lg font-semibold text-white">{cert.title}</h3>
-                  <p className="text-sm text-[#2DFF7A] mt-1">{cert.issuer}</p>
-                  <p className="text-sm text-white/60 mt-3">{cert.description}</p>
+                <div className="mt-4">
+                  <h3 className="text-lg font-semibold text-white">{certificates[certIndex].title}</h3>
+                  <p className="text-sm text-[#2DFF7A] mt-1">{certificates[certIndex].issuer}</p>
+                  <p className="text-sm text-white/60 mt-3">{certificates[certIndex].description}</p>
                 </div>
               </div>
-            ))}
-          </div>
+              <div className="mt-6 flex items-center justify-center gap-6">
+                <button
+                  aria-label="Previous certificate"
+                  onClick={showPrevCert}
+                  className="h-12 w-12 rounded-full bg-[#2DFF7A] text-black text-2xl flex items-center justify-center shadow hover:bg-[#22e36c]"
+                >
+                  ‹
+                </button>
+                <button
+                  aria-label="Next certificate"
+                  onClick={showNextCert}
+                  className="h-12 w-12 rounded-full bg-[#2DFF7A] text-black text-2xl flex items-center justify-center shadow hover:bg-[#22e36c]"
+                >
+                  ›
+                </button>
+              </div>
+            </>
+          )}
         </section>
         )}
-
-        {/* Achievements Section */}
-        {activeTab === 'achievements' && (
-        <section className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">
-            My <span className="text-[#2DFF7A]">Achievements</span>
-          </h2>
-          <div className="space-y-4 rounded-lg bg-white/5 p-6 border border-[#2DFF7A]/30">
-            <div className="flex items-start gap-4">
-              <span className="text-2xl text-[#2DFF7A]">🏆</span>
-              <div>
-                <h3 className="text-lg font-semibold text-white">Academic Excellence</h3>
-                <p className="text-sm text-white/70 mt-2">Consistently maintained high academic performance throughout my undergraduate studies.</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <span className="text-2xl text-[#2DFF7A]">💼</span>
-              <div>
-                <h3 className="text-lg font-semibold text-white">Project Development</h3>
-                <p className="text-sm text-white/70 mt-2">Successfully completed multiple full-stack and mobile development projects from conception to deployment.</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <span className="text-2xl text-[#2DFF7A]">🚀</span>
-              <div>
-                <h3 className="text-lg font-semibold text-white">Continuous Learning</h3>
-                <p className="text-sm text-white/70 mt-2">Actively pursuing certifications and mastering new technologies to stay current with industry standards.</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <span className="text-2xl text-[#2DFF7A]">👥</span>
-              <div>
-                <h3 className="text-lg font-semibold text-white">Team Collaboration</h3>
-                <p className="text-sm text-white/70 mt-2">Worked effectively in team environments, contributing ideas and supporting peers to achieve common goals.</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <span className="text-2xl text-[#2DFF7A]">⭐</span>
-              <div>
-                <h3 className="text-lg font-semibold text-white">Problem Solving</h3>
-                <p className="text-sm text-white/70 mt-2">Demonstrated strong analytical and problem-solving skills in tackling complex technical challenges.</p>
-              </div>
-            </div>
           </div>
-        </section>
-        )}
+        </div>
       </div>
     </div>
   );
