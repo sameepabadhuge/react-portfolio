@@ -70,13 +70,13 @@ export default function Contact() {
           />
 
           <select
-            className="input bg-[#0b1220] text-white border border-white/10 rounded-lg px-4 py-2 focus:outline-none focus:border-[#2DFF7A]"
+            className="input appearance-none cursor-pointer"
             name="subject"
             required
           >
-            <option value="">Select Service</option>
+            <option value="" className="bg-[#0b1220]">Select Service</option>
             {services.map((service) => (
-              <option key={service} value={service}>
+              <option key={service} value={service} className="bg-[#0b1220]">
                 {service}
               </option>
             ))}

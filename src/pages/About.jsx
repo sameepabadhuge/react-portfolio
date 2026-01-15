@@ -29,7 +29,7 @@ const certificates = [
 
 const experiences = [
   {
-    title: "Software Developer (Multiple Roles)",
+    title: "Software Developer",
     org: "University / Personal Projects",
     bullets: [
       "Frontend Developer: Built responsive and user-friendly interfaces using React and modern CSS",
@@ -179,13 +179,13 @@ export default function Resume() {
           {/* New compact profile + contact cards */}
           <div className="space-y-6 mt-6">
             <div className="rounded-xl bg-white/5 p-6 border border-white/10">
-              <h3 className="text-xl font-semibold text-white">About me</h3>
+             
               <p className="mt-3 text-white/80">
-                BICT undergraduate passionate about DevOps, cloud computing, and building secure, automated systems.
+                BICT undergraduate with a strong passion for full-stack development and building real-world web and mobile applications.
               </p>
               <div className="mt-4 space-y-2 text-white/70 text-sm">
-                <p><span className="text-white">Name:</span> <span className="font-semibold">Ayesha Lakshan</span></p>
-                <p><span className="text-white">Experience:</span> <span className="font-semibold">23 Years old</span></p>
+                <p><span className="text-white">Name:</span> <span className="font-semibold">Sameepa Badhuge</span></p>
+                <p><span className="text-white">Experience:</span> <span className="font-semibold">22 Years old</span></p>
                 <p><span className="text-white">Nationality:</span> <span className="font-semibold">Sri Lankan</span></p>
               </div>
             </div>
@@ -193,8 +193,8 @@ export default function Resume() {
             <div className="rounded-xl bg-white/5 p-6 border border-white/10">
               <h3 className="text-xl font-semibold text-white">Contact</h3>
               <div className="mt-3 space-y-2 text-white/70 text-sm">
-                <p><span className="text-white">Phone:</span> <span className="font-semibold">070-5049567</span></p>
-                <p><span className="text-white">Email:</span> <span className="font-semibold">ayeshalakshan00@gmail.com</span></p>
+                <p><span className="text-white">Phone:</span> <span className="font-semibold">070-2256830</span></p>
+                <p><span className="text-white">Email:</span> <span className="font-semibold">sameepabadhuge2003@gmail.com</span></p>
                 <p><span className="text-white">Languages:</span> <span className="font-semibold">English, Sinhala</span></p>
               </div>
             </div>
