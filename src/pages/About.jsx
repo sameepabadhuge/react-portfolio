@@ -29,23 +29,56 @@ const certificates = [
 
 const experiences = [
   {
-    title: "CI/CD Pipeline Engineer",
-    org: "GitHub",
+    title: "Software Developer (Multiple Roles)",
+    org: "University / Personal Projects",
+    bullets: [
+      "Frontend Developer: Built responsive and user-friendly interfaces using React and modern CSS",
+      "Backend Developer (.NET & Node.js): Developed REST APIs, authentication systems, and database logic",
+      "Full Stack Developer: Designed and implemented complete web applications end-to-end",
+      "Mobile App Developer: Developed cross-platform mobile applications using React Native",
+    ],
+    highlight: true,
+  },
+  {
+    title: "QuizMaster – Online Quiz Management System",
+    org: "Project",
     period: "Nov 2025 – Dec 2025",
     bullets: [
-      "Built CI/CD pipelines with Jenkins, automated Docker container deployments, and Kubernetes orchestration",
-      "Implemented code quality checks with SonarQube and managed Docker images via Docker Hub",
-      "Technologies: Jenkins, GitHub, Docker, Docker Hub, Kubernetes, SonarQube, WSL2",
+      "Developed a full-stack MCQ-based online quiz platform for students and teachers",
+      "Implemented role-based access control for managing quizzes and users",
+      "Built a responsive frontend using React and developed optimized backend APIs using Node.js & Express",
+      "Integrated secure authentication and MongoDB database",
+      "Technologies: React, Node.js, Express, MongoDB, JWT, Tailwind CSS",
     ],
   },
   {
-    title: "Full Stack Developer",
-    org: "Freelance",
-    period: "2024 – Present",
+    title: "EMS – Employee Management System",
+    org: "Project",
+    period: "Jan 2026 – Present",
     bullets: [
-      "Developed MERN applications with responsive UI and secure REST APIs",
-      "Integrated authentication, role-based access, and optimized database queries",
-      "Technologies: React, Node.js, Express, MongoDB, Tailwind CSS",
+      "Developed a full-stack Education Management System using ASP.NET Core with role-based access for teachers, parents, and students",
+      "Implemented attendance tracking and academic data management features",
+      "Technologies: ASP.NET Core, Role-Based Access Control",
+    ],
+  },
+  {
+    title: "CityCare – Smart City Issue Reporting System",
+    org: "Project",
+    period: "Jan 2026 – Present",
+    bullets: [
+      "Developed a web-based application using ASP.NET Core to report and track city issues",
+      "Implemented REST APIs and structured database schemas focusing on real-world problem solving",
+      "Technologies: ASP.NET Core, REST APIs, Database Design",
+    ],
+  },
+  {
+    title: "ServeLanka - Service & Job Marketplace mobile App",
+    org: "Project",
+    period: "Jan 2026 – Present",
+    bullets: [
+      "Developing a cross-platform mobile application connecting service providers and service seekers",
+      "Implemented authentication, profiles, and real-time data handling using Firebase",
+      "Technologies: React Native, Firebase, Cross-Platform Mobile Development",
     ],
   },
 ];
@@ -102,7 +135,14 @@ export default function Resume() {
         {activeTab === 'experience' && (
         <section className="space-y-4">
           {experiences.map((exp, idx) => (
-            <div key={idx} className="rounded-xl bg-white/5 p-6 border border-white/10">
+            <div 
+              key={idx} 
+              className={`rounded-xl p-6 border ${
+                exp.highlight 
+                  ? 'bg-[#2DFF7A]/10 border-[#2DFF7A]' 
+                  : 'bg-white/5 border-white/10'
+              }`}
+            >
               <h2 className="text-xl sm:text-2xl font-bold">{exp.title}</h2>
               <p className="text-[#2DFF7A] text-sm sm:text-base mt-1">{exp.org} • {exp.period}</p>
               <ul className="mt-4 space-y-2 text-white/80 text-sm sm:text-base list-disc pl-5">
