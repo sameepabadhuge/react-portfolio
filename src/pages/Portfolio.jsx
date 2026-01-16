@@ -12,23 +12,23 @@ export default function Portfolio() {
       name: 'QuizMaster',
       description: 'An interactive quiz application with real-time feedback and results tracking.',
       details: 'Built with React to provide engaging educational content with comprehensive analytics and performance metrics.',
-      category: 'Frontend',
+      category: 'Web App ',
       images: [Qm1, Qm4, Qm10, Qm14, Qm9]
     },
     {
       id: 'ems',
       name: 'EMS',
-      description: 'Employee Management System for streamlined HR operations.',
-      details: 'Coming soon. Full employee management and tracking system.',
-      category: 'Full Stack',
+      description: 'Education Management System.',
+      details: 'Coming soon. Education management system for attendance, announcements, and exam results with teacher, student, and parent roles.',
+      category: 'Web App',
       images: []
     },
     {
       id: 'city-care',
       name: 'CityCare',
-      description: 'Urban healthcare delivery platform.',
+      description: 'smart city issue reporting system enabling citizens to report, track, and monitor municipal issues inreal time.',
       details: 'Coming soon. Connected healthcare for smart cities.',
-      category: 'Full Stack',
+      category: 'Web App',
       images: []
     },
     {
@@ -36,7 +36,7 @@ export default function Portfolio() {
       name: 'ServeLanka',
       description: 'Local service marketplace platform.',
       details: 'Coming soon. Connecting service providers with customers.',
-      category: 'Full Stack',
+      category: 'Mobile App',
       images: []
     }
   ];
