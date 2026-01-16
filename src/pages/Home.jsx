@@ -28,7 +28,7 @@ export default function Home() {
         {/* CTA and Social */}
         <div className="flex flex-col items-stretch gap-8 pt-4 sm:flex-row sm:items-center">
           <a 
-            href="/cv.pdf" 
+            href={`${import.meta.env.BASE_URL}cv.pdf`} 
             download="Sameepa_Badhuge_CV.pdf"
             className="w-full rounded-full bg-[#10B981] px-8 py-4 text-center text-lg font-bold text-black shadow-lg transition duration-300 hover:bg-[#2DD4BF] sm:w-auto"
           >
