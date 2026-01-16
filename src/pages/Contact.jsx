@@ -37,7 +37,7 @@ export default function Contact() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 sm:py-20 md:py-24">
       <h1 className="text-center text-3xl font-bold sm:text-4xl">
-        Contact <span className="text-[#2DFF7A]">Me</span>
+        Contact <span className="text-[#10B981]">Me</span>
       </h1>
 
       <form
@@ -93,7 +93,7 @@ export default function Contact() {
         <button
           type="submit"
           disabled={loading}
-          className="mx-auto mt-4 w-full rounded-full bg-[#2DFF7A] px-10 py-3 text-base font-semibold text-black transition hover:bg-[#1dd85f] disabled:opacity-60 sm:w-auto"
+          className="mx-auto mt-4 w-full rounded-full bg-[#10B981] px-10 py-3 text-base font-semibold text-black transition hover:bg-[#2DD4BF] disabled:opacity-60 sm:w-auto"
         >
           {loading ? "Sending..." : "Send Message"}
         </button>

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const linkClass = ({ isActive }) =>
   `text-base font-medium ${
-    isActive ? "text-[#2DFF7A]" : "text-white/70 hover:text-white"
+    isActive ? "text-[#10B981]" : "text-white/70 hover:text-white"
   }`;
 
 const links = [
@@ -27,14 +27,14 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
         <NavLink to="/" className="text-2xl font-extrabold tracking-tight" onClick={() => setIsOpen(false)}>
           <span>Port</span>
-          <span className="text-[#2DFF7A]">folio.</span>
+          <span className="text-[#10B981]">folio.</span>
         </NavLink>
 
         <button
           type="button"
           aria-label="Toggle navigation"
           aria-expanded={isOpen}
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:border-[#2DFF7A]/50 hover:text-[#2DFF7A] md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:border-[#10B981]/50 hover:text-[#10B981] md:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
         >
           {isOpen ? <CloseIcon /> : <MenuIcon />}
@@ -59,7 +59,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `rounded-xl px-3 py-2 text-base font-medium ${
                     isActive
-                      ? "bg-[#2DFF7A]/10 text-[#2DFF7A]"
+                      ? "bg-[#10B981]/10 text-[#10B981]"
                       : "text-white/80 hover:bg-white/5 hover:text-white"
                   }`
                 }

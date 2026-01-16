@@ -16,6 +16,35 @@
 
 @layer components {
 	.input {
-		@apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/50 focus:border-[#2DFF7A] focus:outline-none focus:ring-2 focus:ring-[#2DFF7A]/40;
+		@apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/50 focus:outline-none;
+		border-color: #0b1220;
+		/* focus styles using primary green */
+		--tw-ring-color: rgba(16,185,129,0.4);
+		/* Use Tailwind arbitrary colour when possible; fallback to CSS variable */
+		@apply focus:ring-2;
+		@apply focus:border-[#10B981];
+	}
+
+	/* Utility classes for recommended greens and glow */
+	.btn-primary {
+		background-color: #10B981;
+		color: #000;
+	}
+
+	.btn-primary:hover {
+		background-color: #2DD4BF;
+	}
+
+	.primary-green {
+		color: #10B981;
+	}
+
+	.secondary-green {
+		color: #2DD4BF;
+	}
+
+	.glow-border {
+		border: 3px solid #10B981;
+		box-shadow: 0 0 25px rgba(16,185,129,0.35);
 	}
 }

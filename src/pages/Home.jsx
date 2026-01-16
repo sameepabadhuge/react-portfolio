@@ -16,7 +16,7 @@ export default function Home() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
             Sameepa Badhuge
           </h1>
-          <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-[#2DFF7A]">
+          <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-[#10B981]">
             I'm a Full Stack Developer
           </h2>
         </div>
@@ -30,7 +30,7 @@ export default function Home() {
           <a 
             href="/cv.pdf" 
             download="Sameepa_Badhuge_CV.pdf"
-            className="w-full rounded-full bg-[#2DFF7A] px-8 py-4 text-center text-lg font-bold text-black shadow-lg transition duration-300 hover:bg-[#1dd85f] sm:w-auto"
+            className="w-full rounded-full bg-[#10B981] px-8 py-4 text-center text-lg font-bold text-black shadow-lg transition duration-300 hover:bg-[#2DD4BF] sm:w-auto"
           >
             Download CV
           </a>
@@ -38,11 +38,11 @@ export default function Home() {
           {/* Social Icons */}
           <div className="flex gap-4">
             {socialLinks.map((link, idx) => (
-              <a
+                <a
                 key={idx}
                 href={link.url}
                 aria-label={link.label}
-                className="w-12 h-12 rounded-full border-2 border-[#2DFF7A]/50 flex items-center justify-center text-[#2DFF7A] hover:bg-[#2DFF7A]/10 hover:border-[#2DFF7A] transition duration-300"
+                className="w-12 h-12 rounded-full border-2 border-[#10B981]/50 flex items-center justify-center text-[#10B981] hover:bg-[#10B981]/10 hover:border-[#10B981] transition duration-300"
               >
                 <SocialIcon icon={link.icon} />
               </a>
@@ -53,8 +53,8 @@ export default function Home() {
 
       {/* Right Image */}
       <div className="flex justify-center md:justify-end">
-        <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-[#2DFF7A] sm:h-80 sm:w-80 md:h-96 md:w-96">
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#2DFF7A]/40 via-[#1a4d2e] to-[#0b1220]">
+        <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-[#10B981] sm:h-80 sm:w-80 md:h-96 md:w-96">
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#10B981]/40 via-[#1a4d2e] to-[#0b1220]">
             <img
               src={sithuImage}
               alt="Sameepa Badhuge - Profile"

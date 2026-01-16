@@ -30,7 +30,7 @@ export default function Services() {
     <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 md:py-24">
       <div className="text-center">
         <h1 className="text-3xl font-bold sm:text-4xl">
-          <span className="text-[#2DFF7A]">🛠️</span> What I <span className="text-[#2DFF7A]">Do</span>
+          <span className="text-[#10B981]">🛠️</span> What I <span className="text-[#10B981]">Do</span>
         </h1>
         <p className="mt-4 text-white/60 max-w-2xl mx-auto">
           I offer a range of services to help you build modern, scalable applications across web and mobile platforms.
@@ -39,12 +39,12 @@ export default function Services() {
 
       <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
         {services.map((service) => (
-          <div key={service.title} className="flex flex-col rounded-2xl border border-[#2DFF7A]/30 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 hover:border-[#2DFF7A]/60 transition duration-300">
+          <div key={service.title} className="flex flex-col rounded-2xl border border-[#10B981]/30 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 hover:border-[#10B981]/60 transition duration-300">
             <div className="flex items-start justify-between">
               <h3 className="text-2xl font-semibold">{service.title}</h3>
             </div>
             
-            <p className="mt-2 inline-block text-sm font-medium text-[#2DFF7A]/80">
+            <p className="mt-2 inline-block text-sm font-medium text-[#10B981]/80">
               {service.tagline}
             </p>
 
@@ -58,7 +58,7 @@ export default function Services() {
                 {service.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="inline-block rounded-full bg-[#2DFF7A]/10 px-4 py-1.5 text-sm font-medium text-[#2DFF7A] border border-[#2DFF7A]/30"
+                    className="inline-block rounded-full bg-[#10B981]/10 px-4 py-1.5 text-sm font-medium text-[#10B981] border border-[#10B981]/30"
                   >
                     {tech}
                   </span>

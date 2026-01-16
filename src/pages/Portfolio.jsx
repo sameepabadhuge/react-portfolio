@@ -49,12 +49,12 @@ export default function Portfolio() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 md:py-24">
       <h1 className="text-center text-3xl font-bold sm:text-4xl">
-        Latest <span className="text-[#2DFF7A]">Project</span>
+        Latest <span className="text-[#10B981]">Project</span>
       </h1>
 
       <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
-          <div key={project.id} className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 hover:border-[#2DFF7A]/50 transition duration-300">
+          <div key={project.id} className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 hover:border-[#10B981]/50 transition duration-300">
             <div className="aspect-video w-full bg-black/50 relative overflow-hidden">
               {project.type === "image" ? (
                 <img
