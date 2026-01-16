@@ -1,30 +1,59 @@
 import { useState } from 'react';
+import softwareDevelopment from '../assests/1.png';
+import Web from '../assests/webDesign.png';
+import Frontend from '../assests/frontend.png';
+import Python1 from '../assests/python.png';
+import Linux from '../assests/linux.png';
+import Docker from '../assests/docker.png';
+
+
 
 const certificates = [
   {
-    title: "Full Stack Web Development",
-    issuer: "Online Learning Platform",
-    description: "Completed comprehensive course covering MERN stack development, best practices, and real-world project implementation.",
-    image: "/certificates/fullstack-certificate.jpg",
+    title: "Introduction to career skills in Software  Development",
+    issuer: "LinkedIn Learning",
+    description: "Top skills covered include software development, Career Management and Tech Career Skills.",
+    image: softwareDevelopment,
   },
   {
-    title: ".NET Development Certification",
-    issuer: "Professional Development Program",
-    description: "Gained expertise in C# and .NET framework for building robust backend applications and enterprise solutions.",
-    image: "/certificates/dotnet-certificate.jpg",
+    title: "Web Design for Beginners",
+    issuer: "University of Moratuwa",
+    description: "Completed an introductory course on web design covering HTML, CSS, basic JavaScript, responsive layouts, and modern UI/UX principles. Gained hands-on experience in building simple, user-friendly web pages and understanding core web design best practices.",
+    image: Web,
   },
   {
-    title: "React Native Mobile Development",
-    issuer: "Advanced Tech Course",
-    description: "Successfully completed training in cross-platform mobile development with React Native, building production-ready applications.",
-    image: "/certificates/reactnative-certificate.jpg",
+    title: "Frontend Development Certificate",
+    issuer: "Online Course",
+    description: "Certificate for frontend development covering React, HTML, CSS and responsive layouts.",
+    image: Frontend,
   },
+  {
+    title: "Python Programming Certificate",
+    issuer: "Online Course",
+    description: "Certificate for completing a Python fundamentals and scripting course.",
+    image: Python1,
+  },
+  {
+    title: "Linux Fundamentals Certificate",
+    issuer: "Online Course",
+    description: "Certificate demonstrating proficiency in basic Linux commands and system usage.",
+    image: Linux,
+  },
+  {
+    title: "Docker Basics Certificate",
+    issuer: "Online Course",
+    description: "Certificate for Docker containerization fundamentals and practical usage.",
+    image: Docker,
+  },
+  
+ 
   {
     title: "Uva Wellassa University - BICT Degree",
-    issuer: "In Progress (Expected 2026)",
+    issuer: "In Progress (Expected 2027)",
     description: "Bachelor of Information and Communication Technology with focus on software development and modern technologies.",
-    image: "/certificates/bict-degree.jpg",
+    
   },
+  
 ];
 
 const experiences = [
@@ -105,24 +134,24 @@ export default function Resume() {
   ];
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-16 sm:py-20 md:py-24">
-      <div className="space-y-6 md:space-y-8">
-        <h1 className="text-3xl font-bold sm:text-4xl text-center md:text-left">
-          Why hire me?
+    <div className="mx-auto max-w-7xl px-4 py-16 sm:py-20 md:py-24">
+      <div className="space-y-8 md:space-y-10">
+        <h1 className="text-4xl font-bold sm:text-5xl text-center md:text-left tracking-tight">
+          Why <span className="text-[#2DFF7A]">hire me?</span>
         </h1>
 
         {/* Tab Navigation (vertical stack) */}
-        <div className="flex flex-col sm:flex-row gap-6">
-          <div className="flex sm:flex-col w-full sm:w-64 gap-3">
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="flex flex-row lg:flex-col w-full lg:w-72 gap-3">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`${
                   activeTab === tab.id
-                    ? 'bg-[#2DFF7A] text-black'
-                    : 'bg-white/5 text-white/80 hover:text-white border border-white/10'
-                } px-5 py-3 rounded-xl text-base font-semibold text-left`}
+                    ? 'bg-[#2DFF7A] text-black shadow-lg shadow-[#2DFF7A]/20'
+                    : 'bg-white/5 text-white/80 hover:text-white hover:bg-white/10 border border-white/10'
+                } px-6 py-4 rounded-2xl text-base font-semibold text-left transition-all duration-200`}
               >
                 {tab.label}
               </button>
@@ -133,21 +162,26 @@ export default function Resume() {
 
         {/* Experience Section */}
         {activeTab === 'experience' && (
-        <section className="space-y-4">
+        <section className="space-y-6">
           {experiences.map((exp, idx) => (
             <div 
               key={idx} 
-              className={`rounded-xl p-6 border ${
+              className={`rounded-2xl p-6 sm:p-8 border transition-all duration-200 ${
                 exp.highlight 
-                  ? 'bg-[#2DFF7A]/10 border-[#2DFF7A]' 
-                  : 'bg-white/5 border-white/10'
+                  ? 'bg-[#2DFF7A]/10 border-[#2DFF7A] shadow-lg shadow-[#2DFF7A]/10' 
+                  : 'bg-white/5 border-white/10 hover:border-white/20'
               }`}
             >
-              <h2 className="text-xl sm:text-2xl font-bold">{exp.title}</h2>
-              <p className="text-[#2DFF7A] text-sm sm:text-base mt-1">{exp.org} • {exp.period}</p>
-              <ul className="mt-4 space-y-2 text-white/80 text-sm sm:text-base list-disc pl-5">
+              <div className="space-y-3">
+                <h2 className="text-xl sm:text-2xl font-bold tracking-tight">{exp.title}</h2>
+                <p className="text-[#2DFF7A] text-sm sm:text-base font-medium">{exp.org} • {exp.period}</p>
+              </div>
+              <ul className="mt-6 space-y-3 text-white/80 text-sm sm:text-base">
                 {exp.bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-[#2DFF7A] mt-1 shrink-0">▸</span>
+                    <span className="leading-relaxed">{b}</span>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -157,12 +191,12 @@ export default function Resume() {
 
         {/* About Me Section */}
         {activeTab === 'about' && (
-        <section className="space-y-4">
-          <h2 className="text-2xl font-bold text-white">
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold text-white tracking-tight">
             About <span className="text-[#2DFF7A]">Me</span>
           </h2>
           {/* Original detailed description */}
-          <div className="rounded-lg bg-white/5 p-6 border border-[#2DFF7A]/30 space-y-4">
+          <div className="rounded-2xl bg-white/5 p-6 sm:p-8 border border-[#2DFF7A]/30 space-y-5 shadow-lg">
             <p className="text-base leading-relaxed text-white/70 sm:text-lg">
               I am an undergraduate student at Uva Wellassa University of Sri Lanka, currently following the Bachelor of Information and Communication Technology (BICT) degree program. Through my academic studies and personal projects, I have gained a strong foundation in software development, problem-solving, and modern application design.
             </p>
@@ -177,8 +211,8 @@ export default function Resume() {
           </div>
 
           {/* New compact profile + contact cards */}
-          <div className="space-y-6 mt-6">
-            <div className="rounded-xl bg-white/5 p-6 border border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div className="rounded-2xl bg-white/5 p-6 sm:p-8 border border-white/10 hover:border-[#2DFF7A]/50 transition-all duration-200">
              
               <p className="mt-3 text-white/80">
                 BICT undergraduate with a strong passion for full-stack development and building real-world web and mobile applications.
@@ -190,7 +224,7 @@ export default function Resume() {
               </div>
             </div>
 
-            <div className="rounded-xl bg-white/5 p-6 border border-white/10">
+            <div className="rounded-2xl bg-white/5 p-6 sm:p-8 border border-white/10 hover:border-[#2DFF7A]/50 transition-all duration-200">
               <h3 className="text-xl font-semibold text-white">Contact</h3>
               <div className="mt-3 space-y-2 text-white/70 text-sm">
                 <p><span className="text-white">Phone:</span> <span className="font-semibold">070-2256830</span></p>
@@ -297,7 +331,7 @@ export default function Resume() {
           ) : (
             <>
               <div className="rounded-xl bg-white/5 p-4 border border-[#2DFF7A]/30 overflow-hidden">
-                <div className="bg-white/10 rounded-lg overflow-hidden border border-[#2DFF7A]/20 flex items-center justify-center">
+                <div className="mx-auto max-w-xs sm:max-w-sm md:max-w-md bg-white/10 rounded-lg overflow-hidden border border-[#2DFF7A]/20 flex items-center justify-center p-4">
                   <img
                     src={certificates[certIndex].image}
                     alt={certificates[certIndex].title}
