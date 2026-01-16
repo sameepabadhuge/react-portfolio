@@ -1,78 +1,150 @@
 import React, { useState } from "react";
 import Qm1 from '../assests/1q.png';
-import Qm2 from '../assests/2q.png';
-import Qm3 from '../assests/3q.png';
 import Qm4 from '../assests/4q.png';
-import Qm5 from '../assests/5q.png';
-import Qm6 from '../assests/6q.png';
-import Qm7 from '../assests/7q.png';
-import Qm8 from '../assests/8q.png';
 import Qm9 from '../assests/9q.png';
 import Qm10 from '../assests/10q.png';
-import Qm11 from '../assests/11q.png';
-import Qm12 from '../assests/12q.png';
-import Qm13 from '../assests/13q.png';
 import Qm14 from '../assests/14q.png';
-import Qm15 from '../assests/15.png';
 
 export default function Portfolio() {
+  const projects = [
+    {
+      id: 'quiz-master',
+      name: 'QuizMaster',
+      description: 'An interactive quiz application with real-time feedback and results tracking.',
+      details: 'Built with React to provide engaging educational content with comprehensive analytics and performance metrics.',
+      category: 'Frontend',
+      images: [Qm1, Qm4, Qm10, Qm14, Qm9]
+    },
+    {
+      id: 'ems',
+      name: 'EMS',
+      description: 'Employee Management System for streamlined HR operations.',
+      details: 'Coming soon. Full employee management and tracking system.',
+      category: 'Full Stack',
+      images: []
+    },
+    {
+      id: 'city-care',
+      name: 'CityCare',
+      description: 'Urban healthcare delivery platform.',
+      details: 'Coming soon. Connected healthcare for smart cities.',
+      category: 'Full Stack',
+      images: []
+    },
+    {
+      id: 'serve-lanka',
+      name: 'ServeLanka',
+      description: 'Local service marketplace platform.',
+      details: 'Coming soon. Connecting service providers with customers.',
+      category: 'Full Stack',
+      images: []
+    }
+  ];
+
+  const [selectedProject, setSelectedProject] = useState('quiz-master');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const quizMasterImages = [Qm1, Qm2, Qm3, Qm4, Qm10, Qm11, Qm12, Qm13, Qm14, Qm5, Qm9, Qm9, Qm6, Qm7, Qm8];
+  const currentProject = projects.find(p => p.id === selectedProject);
 
   const handlePrevImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? quizMasterImages.length - 1 : prevIndex - 1));
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? currentProject.images.length - 1 : prevIndex - 1
+    );
   };
 
   const handleNextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex === quizMasterImages.length - 1 ? 0 : prevIndex + 1));
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === currentProject.images.length - 1 ? 0 : prevIndex + 1
+    );
   };
+
+  const handleProjectChange = (projectId) => {
+    setSelectedProject(projectId);
+    setCurrentImageIndex(0);
+  };
+
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 md:py-24">
-      <h1 className="text-center text-3xl font-bold sm:text-4xl">
-        Latest <span className="text-[#10B981]">Project</span>
-      </h1>
+    <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10 md:py-12">
+      <div className="mb-6">
+        <h1 className="text-2xl md:text-3xl font-bold">
+          <span className="text-[#10B981]">Projects</span>
+        </h1>
+      </div>
 
-      <div className="mt-10 flex justify-center">
-        <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-          <div className="w-full bg-black relative" style={{minHeight: '500px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <img
-              key={currentImageIndex}
-              src={quizMasterImages[currentImageIndex]}
-              alt="QuizMaster"
-              style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain'}}
-              onError={(e) => {
-                console.error('Image failed to load:', quizMasterImages[currentImageIndex]);
-                e.target.style.display = 'none';
-              }}
-              onLoad={() => console.log('Image loaded:', quizMasterImages[currentImageIndex])}
-            />
-          </div>
+      <div className="space-y-3 mb-6">
+        {projects.map(project => (
+          <button
+            key={project.id}
+            onClick={() => handleProjectChange(project.id)}
+            className={`w-full p-2.5 rounded-lg font-medium text-sm text-left transition duration-300 ${
+              selectedProject === project.id
+                ? 'bg-[#10B981] text-black'
+                : 'bg-white/5 border border-white/10 text-white hover:bg-white/10'
+            }`}
+          >
+            {project.name}
+          </button>
+        ))}
+      </div>
 
-          <div className="flex items-center justify-center gap-6 p-6">
-            <button
-              onClick={handlePrevImage}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-[#10B981] hover:bg-[#059669] transition duration-300"
-            >
-              <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            <span className="text-white/60 text-sm">
-              {currentImageIndex + 1} / {quizMasterImages.length}
-            </span>
-
-            <button
-              onClick={handleNextImage}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-[#10B981] hover:bg-[#059669] transition duration-300"
-            >
-              <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
+      {/* Project Details and Image */}
+      <div className="space-y-4">
+        {/* Description */}
+        <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+          <h2 className="text-lg font-bold mb-2">{currentProject.name}</h2>
+          <p className="text-white/70 text-sm mb-2">{currentProject.description}</p>
+          <p className="text-white/60 text-xs mb-3">{currentProject.details}</p>
+          <span className="inline-block px-3 py-1 bg-[#10B981]/20 text-[#10B981] text-xs font-semibold rounded-full">
+            {currentProject.category}
+          </span>
         </div>
+
+        {/* Images Section */}
+        {currentProject.images && currentProject.images.length > 0 ? (
+          <div className="overflow-hidden rounded-lg border border-white/10 bg-white/5">
+            <div className="w-full bg-black relative" style={{minHeight: '450px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              <img
+                key={currentImageIndex}
+                src={currentProject.images[currentImageIndex]}
+                alt={`${currentProject.name} - Screenshot`}
+                style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain'}}
+              />
+            </div>
+
+            <div className="flex items-center justify-center gap-3 p-3">
+              <button
+                onClick={handlePrevImage}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#10B981] text-white transition duration-300"
+              >
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              <span className="text-white/50 text-xs">
+                {currentImageIndex + 1} / {currentProject.images.length}
+              </span>
+
+              <button
+                onClick={handleNextImage}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#10B981] text-white transition duration-300"
+              >
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="overflow-hidden rounded-lg border border-white/10 bg-white/5 h-96 flex items-center justify-center">
+            <div className="text-center text-white/40">
+              <svg className="h-10 w-10 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <p className="text-xs">Images coming soon</p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
