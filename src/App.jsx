@@ -18,6 +18,8 @@ export default function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/projects" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
+        {/* Fallback to Home for any unknown route (helps after deploy) */}
+        <Route path="*" element={<Home />} />
       </Routes>
 
       <footer className="mt-20 border-t border-white/10 py-6 text-center text-sm text-white/60">

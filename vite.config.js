@@ -5,5 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/react-portfolio/",   // ✅ REQUIRED for GitHub Pages
+  // Use root base for username.github.io deployments
+  // If you deploy under a subpath (e.g., /react-portfolio/),
+  // change this to that subpath or set via env at build time.
+  base: "/",
 });
