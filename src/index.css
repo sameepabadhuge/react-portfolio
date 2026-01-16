@@ -1,50 +1,67 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 @layer base {
-	:root {
-		color-scheme: dark;
-	}
+:root {
+color-scheme: dark;
+}
 
-	body {
-		@apply min-h-screen bg-[#0b1220] text-white antialiased;
-	}
+body {
+@apply min-h-screen bg-[#0b1220] text-white antialiased;
+}
 
-	a {
-		@apply transition-colors;
-	}
+a {
+@apply transition-colors;
+}
 }
 
 @layer components {
-	.input {
-		@apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/50 focus:outline-none;
-		border-color: #0b1220;
-		/* focus styles using primary green */
-		--tw-ring-color: rgba(16,185,129,0.4);
-		/* Use Tailwind arbitrary colour when possible; fallback to CSS variable */
-		@apply focus:ring-2;
-		@apply focus:border-[#10B981];
-	}
+.input {
+@apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/50 focus:outline-none;
+border-color: #0b1220;
+/* focus styles using primary green */
+--tw-ring-color: rgba(16,185,129,0.4);
+/* Use Tailwind arbitrary colour when possible; fallback to CSS variable */
+@apply focus:ring-2;
+@apply focus:border-[#10B981];
+}
 
-	/* Utility classes for recommended greens and glow */
-	.btn-primary {
-		background-color: #10B981;
-		color: #000;
-	}
+/* Utility classes for recommended greens and glow */
+.btn-primary {
+background-color: #10B981;
+color: #000;
+}
 
-	.btn-primary:hover {
-		background-color: #2DD4BF;
-	}
+.btn-primary:hover {
+background-color: #2DD4BF;
+}
 
-	.primary-green {
-		color: #10B981;
-	}
+.primary-green {
+color: #10B981;
+}
 
-	.secondary-green {
-		color: #2DD4BF;
-	}
+.secondary-green {
+color: #2DD4BF;
+}
 
-	.glow-border {
-		border: 3px solid #10B981;
-		box-shadow: 0 0 25px rgba(16,185,129,0.35);
-	}
+.glow-border {
+border: 3px solid #10B981;
+box-shadow: 0 0 25px rgba(16,185,129,0.35);
+}
+
+.animated-letter {
+display: inline-block;
+animation: letterColor 1.5s ease-in-out infinite;
+color: #ffffff;
+}
+}
+
+@keyframes letterColor {
+0%, 100% { color: #ffffff; }
+50% { color: #10B981; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+.animated-letter {
+animation: none;
+}
 }

@@ -14,10 +14,10 @@ export default function Home() {
       <div className="space-y-6">
         <div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
-            Sameepa Badhuge
+            <AnimatedText text="Sameepa Badhuge" />
           </h1>
           <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-[#10B981]">
-            I'm a Full Stack Developer
+            <AnimatedText text="I'm a Full Stack Developer" />
           </h2>
         </div>
 
@@ -92,4 +92,20 @@ function SocialIcon({ icon }) {
   };
 
   return icons[icon] || null;
+}
+
+function AnimatedText({ text }) {
+  return (
+    <span className="inline-flex flex-wrap">
+      {text.split('').map((char, idx) => (
+        <span
+          key={`${char}-${idx}`}
+          className="animated-letter"
+          style={{ animationDelay: `${idx * 0.08}s` }}
+        >
+          {char === ' ' ? '\u00A0' : char}
+        </span>
+      ))}
+    </span>
+  );
 }
