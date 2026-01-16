@@ -4,10 +4,10 @@ export default function Portfolio() {
   const projects = [
     {
       id: 1,
-      title: "Project Name",
+      title: "QuizMaster",
       type: "image",
-      src: "/images/p1.jpg",
-      description: "Project description here"
+      src: "/src/assests/quizMaster/1q.png",
+      description: "QuizMaster – MCQ online quiz platform",
     },
     {
       id: 2,

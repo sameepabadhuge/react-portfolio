@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Services() {
   const services = [
     {
@@ -63,6 +65,18 @@ export default function Services() {
                     {tech}
                   </span>
                 ))}
+              </div>
+              <div className="mt-4">
+                <Link
+                  to={`/contact?subject=${encodeURIComponent(service.title)}`}
+                  className="btn-primary inline-flex items-center gap-2 px-4 py-2 rounded-full shadow transition hover:bg-[#2DD4BF]"
+                  aria-label={`Hire me for ${service.title}`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2a5 5 0 00-5 5v1H6a2 2 0 00-2 2v2h16v-2a2 2 0 00-2-2h-1V7a5 5 0 00-5-5zM6 15v4a3 3 0 003 3h6a3 3 0 003-3v-4H6z" />
+                  </svg>
+                  <span>Hire Me</span>
+                </Link>
               </div>
             </div>
           </div>
