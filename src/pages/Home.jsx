@@ -1,4 +1,9 @@
 import sithuImage from '../assests/sithu.jpeg';
+import Resume from './About';
+import Portfolio from './Portfolio';
+import Contact from './Contact';
+import { motion } from 'framer-motion';
+
 
 export default function Home() {
   const socialLinks = [
@@ -9,60 +14,87 @@ export default function Home() {
   ];
 
   return (
-    <div className="mx-auto grid min-h-[calc(100vh-80px)] max-w-6xl items-center gap-14 px-4 py-16 sm:py-24 md:grid-cols-2 md:gap-20 md:py-28">
-      {/* Left Content */}
-      <div className="space-y-6">
-        <div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
-            <AnimatedText text="Sameepa Badhuge" />
-          </h1>
-          <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-[#10B981]">
-            <AnimatedText text="I'm a Full Stack Developer" />
-          </h2>
-        </div>
+    <div className="bg-[#0B1220]">
+      {/* Home Section */}
+      <section id="home">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="mx-auto grid min-h-[calc(100vh-80px)] max-w-6xl items-center gap-14 px-4 py-16 sm:py-24 md:grid-cols-2 md:gap-20 md:py-28"
+        >
+          {/* Left Content */}
+          <div className="space-y-6">
+            <div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
+                <AnimatedText text="Sameepa Badhuge" />
+              </h1>
+              <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-[#10B981]">
+                <AnimatedText text="I'm a Full Stack Developer" />
+              </h2>
+            </div>
 
-        <p className="max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
-         I am a passionate Full Stack Developer with experience in building modern web and mobile applications. I work with .NET, MERN stack, and React Native to create clean, scalable, and user-friendly solutions. I enjoy solving real-world problems through code and continuously improving my skills by learning new technologies.
-        </p>
+            <p className="max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+              I am a passionate Full Stack Developer with experience in building modern web and mobile applications. I work with .NET, MERN stack, and React Native to create clean, scalable, and user-friendly solutions. I enjoy solving real-world problems through code and continuously improving my skills by learning new technologies.
+            </p>
 
-        {/* CTA and Social */}
-        <div className="flex flex-col items-stretch gap-8 pt-4 sm:flex-row sm:items-center">
-          <a 
-            href={`${import.meta.env.BASE_URL}cv.pdf`} 
-            download="Sameepa_Badhuge_CV.pdf"
-            className="w-full rounded-full bg-[#10B981] px-8 py-4 text-center text-lg font-bold text-black shadow-lg transition duration-300 hover:bg-[#2DD4BF] sm:w-auto"
-          >
-            Download CV
-          </a>
-
-          {/* Social Icons */}
-          <div className="flex gap-4">
-            {socialLinks.map((link, idx) => (
-                <a
-                key={idx}
-                href={link.url}
-                aria-label={link.label}
-                className="w-12 h-12 rounded-full border-2 border-[#10B981]/50 flex items-center justify-center text-[#10B981] hover:bg-[#10B981]/10 hover:border-[#10B981] transition duration-300"
+            {/* CTA and Social */}
+            <div className="flex flex-col items-stretch gap-8 pt-4 sm:flex-row sm:items-center">
+              <a 
+                href={`${import.meta.env.BASE_URL}cv.pdf`} 
+                download="Sameepa_Badhuge_CV.pdf"
+                className="w-full rounded-full bg-[#10B981] px-8 py-4 text-center text-lg font-bold text-black shadow-lg transition duration-300 hover:bg-[#2DD4BF] sm:w-auto"
               >
-                <SocialIcon icon={link.icon} />
+                Download CV
               </a>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      {/* Right Image */}
-      <div className="flex justify-center md:justify-end">
-        <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-[#10B981] sm:h-80 sm:w-80 md:h-96 md:w-96">
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#10B981]/40 via-[#1a4d2e] to-[#0b1220]">
-            <img
-              src={sithuImage}
-              alt="Sameepa Badhuge - Profile"
-              className="h-full w-full rounded-full object-cover"
-            />
+              {/* Social Icons */}
+              <div className="flex gap-4">
+                {socialLinks.map((link, idx) => (
+                  <a
+                    key={idx}
+                    href={link.url}
+                    aria-label={link.label}
+                    className="w-12 h-12 rounded-full border-2 border-[#10B981]/50 flex items-center justify-center text-[#10B981] hover:bg-[#10B981]/10 hover:border-[#10B981] transition duration-300"
+                  >
+                    <SocialIcon icon={link.icon} />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+
+          {/* Right Image */}
+          <div className="flex justify-center md:justify-end">
+            <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-[#10B981] sm:h-80 sm:w-80 md:h-96 md:w-96">
+              <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#10B981]/40 via-[#1a4d2e] to-[#0b1220]">
+                <img
+                  src={sithuImage}
+                  alt="Sameepa Badhuge - Profile"
+                  className="h-full w-full rounded-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="min-h-screen scroll-mt-24 pt-20 pb-20">
+        <Resume />
+      </section>
+
+      {/* Portfolio Section */}
+      <section id="portfolio" className="min-h-screen scroll-mt-24 pt-20 pb-20">
+        <Portfolio />
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="min-h-screen scroll-mt-24 pt-20 pb-20">
+        <Contact />
+      </section>
+
+
     </div>
   );
 }
