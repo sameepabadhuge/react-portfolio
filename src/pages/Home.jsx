@@ -1,5 +1,6 @@
 import sithuImage from "../assests/sithu.jpeg";
 import Resume from "./About";
+import Services from "./Services";
 import Portfolio from "./Portfolio";
 import Contact from "./Contact";
 import { motion } from "framer-motion";
@@ -106,6 +107,11 @@ export default function Home() {
       {/* About */}
       <section id="about" className="min-h-screen scroll-mt-24 pt-20 pb-20">
         <Resume />
+      </section>
+
+      {/* Services */}
+      <section id="services" className="min-h-screen scroll-mt-24 pt-20 pb-20">
+        <Services />
       </section>
 
       {/* Portfolio */}
