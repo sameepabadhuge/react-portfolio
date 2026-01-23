@@ -285,50 +285,117 @@ export default function Resume() {
                 </div>
               </section>
             )}
-
             {/* Skills */}
             {activeTab === "skills" && (
-              <section className="space-y-4">
+              <section className="space-y-6">
                 <h2 className="text-2xl font-bold text-white">
                   My <span className="text-[#10B981]">Skills</span>
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {[
-                    {
-                      title: "Frontend",
-                      items: ["React & React Native", "JavaScript", "Tailwind CSS", "HTML & CSS"],
-                    },
-                    {
-                      title: "Backend",
-                      items: [".NET & C#", "Node.js & Express", "MongoDB & SQL", "REST APIs"],
-                    },
-                    {
-                      title: "Tools",
-                      items: ["Git & GitHub", "VS Code / Visual Studio", "Figma", "Postman"],
-                    },
-                    {
-                      title: "Other",
-                      items: ["Problem Solving", "Teamwork", "Communication", "Project Planning"],
-                    },
-                  ].map((box) => (
-                    <div
-                      key={box.title}
-                      className="rounded-2xl bg-white/5 p-4 sm:p-6 border border-white/10"
-                    >
-                      <h3 className="text-base sm:text-lg font-semibold text-[#10B981] mb-3">
-                        {box.title}
-                      </h3>
-                      <ul className="space-y-2 text-sm text-white/70">
-                        {box.items.map((it) => (
-                          <li key={it} className="flex items-center gap-2">
-                            <span className="text-[#10B981]">✓</span>
-                            <span>{it}</span>
-                          </li>
-                        ))}
-                      </ul>
+                <div className="space-y-5">
+                  {/* Programming Languages */}
+                  <div className="rounded-2xl bg-white/5 p-5 sm:p-6 border border-white/10 hover:border-white/20 transition-all">
+                    <h3 className="text-lg font-semibold text-[#10B981] mb-4">Programming Languages</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {['Python', 'PHP', 'Java', 'JavaScript', 'HTML', 'CSS', 'C#', 'SQL'].map((lang, idx) => (
+                        <div key={lang} className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#10B981]/50 transition-all hover:scale-105">
+                          <span className="text-[#10B981] text-sm">●</span>
+                          <span className="text-white/80 group-hover:text-white text-sm font-medium">{lang}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Frontend */}
+                  <div className="rounded-2xl bg-white/5 p-5 sm:p-6 border border-white/10 hover:border-white/20 transition-all">
+                    <h3 className="text-lg font-semibold text-[#10B981] mb-4">Frontend</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {['React.js', 'HTML5', 'CSS3', 'Responsive UI Design'].map((tech, idx) => (
+                        <div key={tech} className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#10B981]/50 transition-all hover:scale-105">
+                          <span className="text-[#10B981] text-sm">●</span>
+                          <span className="text-white/80 group-hover:text-white text-sm font-medium">{tech}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Backend */}
+                  <div className="rounded-2xl bg-white/5 p-5 sm:p-6 border border-white/10 hover:border-white/20 transition-all">
+                    <h3 className="text-lg font-semibold text-[#10B981] mb-4">Backend</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {['Node.js', 'Express.js', 'ASP.NET Core', 'REST APIs'].map((tech, idx) => (
+                        <div key={tech} className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#10B981]/50 transition-all hover:scale-105">
+                          <span className="text-[#10B981] text-sm">●</span>
+                          <span className="text-white/80 group-hover:text-white text-sm font-medium">{tech}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Mobile */}
+                  <div className="rounded-2xl bg-white/5 p-5 sm:p-6 border border-white/10 hover:border-white/20 transition-all">
+                    <h3 className="text-lg font-semibold text-[#10B981] mb-4">Mobile</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {['React Native', 'Expo'].map((tech, idx) => (
+                        <div key={tech} className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#10B981]/50 transition-all hover:scale-105">
+                          <span className="text-[#10B981] text-sm">●</span>
+                          <span className="text-white/80 group-hover:text-white text-sm font-medium">{tech}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Databases */}
+                  <div className="rounded-2xl bg-white/5 p-5 sm:p-6 border border-white/10 hover:border-white/20 transition-all">
+                    <h3 className="text-lg font-semibold text-[#10B981] mb-4">Databases</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {['MySQL', 'MongoDB', 'SQLite','SQL Server', 'Firebase'].map((db, idx) => (
+                        <div key={db} className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#10B981]/50 transition-all hover:scale-105">
+                          <span className="text-[#10B981] text-sm">●</span>
+                          <span className="text-white/80 group-hover:text-white text-sm font-medium">{db}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Tools */}
+                  <div className="rounded-2xl bg-white/5 p-5 sm:p-6 border border-white/10 hover:border-white/20 transition-all">
+                    <h3 className="text-lg font-semibold text-[#10B981] mb-4">Tools</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {['Postman', 'VS Code', 'Figma', 'Git', 'GitHub'].map((tool, idx) => (
+                        <div key={tool} className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#10B981]/50 transition-all hover:scale-105">
+                          <span className="text-[#10B981] text-sm">●</span>
+                          <span className="text-white/80 group-hover:text-white text-sm font-medium">{tool}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Concepts */}
+                  <div className="rounded-2xl bg-white/5 p-5 sm:p-6 border border-white/10 hover:border-white/20 transition-all">
+                    <h3 className="text-lg font-semibold text-[#10B981] mb-4">Concepts & Security</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {['Version Control', 'MVC', 'OOP', 'JWT', 'Role-Based Access Control', 'Encryption-Decryption'].map((concept, idx) => (
+                        <div key={concept} className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#10B981]/50 transition-all hover:scale-105">
+                          <span className="text-[#10B981] text-sm">●</span>
+                          <span className="text-white/80 group-hover:text-white text-sm font-medium">{concept}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Soft Skills */}
+                  <div className="rounded-2xl bg-white/5 p-5 sm:p-6 border border-white/10 hover:border-white/20 transition-all">
+                    <h3 className="text-lg font-semibold text-[#10B981] mb-4">Soft Skills</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {['Problem-solving', 'Communication', 'Teamwork', 'Time Management', 'Adaptability'].map((skill, idx) => (
+                        <div key={skill} className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#10B981]/50 transition-all hover:scale-105">
+                          <span className="text-[#10B981] text-sm">●</span>
+                          <span className="text-white/80 group-hover:text-white text-sm font-medium">{skill}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </section>
             )}
