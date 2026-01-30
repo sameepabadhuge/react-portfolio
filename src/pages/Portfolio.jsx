@@ -1,9 +1,17 @@
 import React, { useState } from "react";
+
 import Qm1 from '../assests/1q.png';
 import Qm4 from '../assests/4q.png';
 import Qm9 from '../assests/9q.png';
 import Qm10 from '../assests/10q.png';
 import Qm14 from '../assests/14q.png';
+
+import cc1 from '../assests/citycare/cc1.png';
+import cc3 from '../assests/citycare/cc3.png';
+import cc4 from '../assests/citycare/cc4.png';
+import cc5 from '../assests/citycare/cc5.png';
+import cc6 from '../assests/citycare/cc6.png';
+import cc25 from '../assests/citycare/cc25.png';
 
 export default function Portfolio() {
   const projects = [
@@ -26,10 +34,10 @@ export default function Portfolio() {
     {
       id: 'city-care',
       name: 'CityCare',
-      description: 'smart city issue reporting system enabling citizens to report, track, and monitor municipal issues inreal time.',
-      details: 'Coming soon. Connected healthcare for smart cities.',
+      description: 'Smart city issue reporting system enabling citizens to report, track, and monitor municipal issues in real time.',
+      details: 'Role: Software Developer. Connected healthcare for smart cities.',
       category: 'Web App',
-      images: []
+      images: [cc1, cc25, cc3, cc4, cc5, cc6]
     },
     {
       id: 'serve-lanka',
